@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Window
+    x:Class="SFXEncoder.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SFXEncoder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="哈夫曼编码文本压缩工具">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="CustomTitleBar" Grid.Row="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Top"
+              Height="32">
+            <TextBlock Text="哈夫曼编码文本压缩工具"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0" />
+        </Grid>
+
+        <Border Grid.Row="1" CornerRadius="10" Margin="36,10,36,36"
+                Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                BorderThickness="1" VerticalAlignment="Stretch">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="SelectFile">选择文档</Button>
+                    <TextBlock Grid.Column="1" x:Name="FilePath" HorizontalAlignment="Stretch"
+                               VerticalAlignment="Center" Margin="16,0,0,0">
+                        尚未选择任何文件
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                            Click="SelectOutputPath">
+                        输出位置
+                    </Button>
+                    <TextBlock Grid.Column="1" x:Name="OutputPath" HorizontalAlignment="Stretch"
+                               VerticalAlignment="Center" Margin="16,0,0,0">
+                        尚未选择输出目录
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="LaunchEncodeButton" IsEnabled="False"
+                            Margin="0,0,16,0" Click="LaunchEncode">
+                        开始压缩
+                    </Button>
+                    <ProgressBar x:Name="ProgressBar" Grid.Column="1" HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Center" IsIndeterminate="False">
+                    </ProgressBar>
+                    <TextBlock Grid.Column="2" x:Name="PercentageBox" Margin="16,7,0,0"></TextBlock>
+                </Grid>
+
+                <Border Grid.Row="3" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefault}">
+                    <TextBlock x:Name="InfoTextBlock" Grid.Row="3"
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                               Margin="8,0,8,0"
+                               TextAlignment="Center">
+                    </TextBlock>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</Window>

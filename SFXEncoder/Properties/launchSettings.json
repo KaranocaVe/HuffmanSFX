@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SFXEncoder (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SFXEncoder (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
